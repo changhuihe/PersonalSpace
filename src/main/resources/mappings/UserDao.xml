@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hch.dao.userRelatedDao.UserDao">
+
+	<resultMap id="UserMap" type="com.hch.entity.userRelatedEntity.User">
+		<!-- 继承字段 -->
+		<result property="id" column="id" />
+		<result property="deletedFlag" column="deleted_flag" />
+		<result property="checkedFlag" column="checked_flag" />
+		<result property="createDate" column="create_date" />
+		<result property="creator.id" column="creator_id" />
+		<result property="editorDate" column="editor_date" />
+		<result property="editor.id" column="editor_id" />
+		<result property="deleteDate" column="delete_date" />
+		<result property="deleteUser.id" column="delete_userId" />
+		<result property="checkDate" column="check_date" />
+		<result property="checker.id" column="checker_id" />
+		<!-- 基本字段 -->
+		<result property="name" column="name" />
+		<result property="password" column="password" />
+		<result property="birthDate" column="birth_date" />
+		<result property="email" column="email" />
+		<result property="address" column="address" />
+		<result property="contactWay" column="contact_way" />
+		<result property="loginFlag" column="login_flag" />
+		<result property="errorCount" column="error_count" />
+	</resultMap>
+
+	<select id="findByName" resultMap="UserMap">
+		select * from ps_user where
+		name=#{name}
+	</select>
+
+	<select id="findByEmail" resultMap="UserMap">
+		select * from ps_user where
+		email=#{email}
+	</select>
+
+	<select id="get" resultMap="UserMap">
+		select * from ps_user where id=#{id}
+	</select>
+
+	<insert id="insert">
+		insert into ps_user(
+			id,
+			deleted_flag,
+			checked_flag,
+			create_date,
+			creator_id,
+			editor_date,
+			editor_id,
+			delete_date,
+			delete_userId,
+			check_date,
+			checker_id,
+			name,
+			password,
+			birth_date,
+			email,
+			address,
+			contact_way,
+			login_flag,
+			error_count
+		)values(
+			UUID(),
+			#{deletedFlag},
+			#{checkedFlag},
+			#{createDate},
+			#{creator.id},
+			#{editorDate},
+			#{editor.id},
+			#{deleteDate},
+			#{deleteUser.id},
+			#{checkDate},
+			#{checker.id},
+			#{name},
+			#{password},
+			#{birthDate},
+			#{email},
+			#{address},
+			#{contactWay},
+			#{loginFlag},
+			#{errorCount}
+		)
+	</insert>
+
+
+
+</mapper>
