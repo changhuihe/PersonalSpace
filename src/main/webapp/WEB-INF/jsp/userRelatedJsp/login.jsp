@@ -40,11 +40,10 @@
 	<div class="register_box">
 		<h3>注&nbsp;&nbsp;册</h3>
 		<div class="input_outer user_input2">
-			<span class="user_ico"></span>
-			<!-- autocomplete=off禁止自动提示 -->
-			<input path="name" name="logname" id="logname" class="text"
-				placeholder='输入用户名(3-20位)' maxlength="20" type="text"
-				onkeyup="maxCheck()" onchange="minCheck()" autocomplete="off" />
+			<span class="user_ico"></span> <input path="name" name="logname"
+				id="logname" class="text" placeholder='输入用户名(3-20位)' maxlength="20"
+				type="text" onkeyup="maxCheck()" onchange="minCheck()"
+				autocomplete="off" />
 		</div>
 		<div class="input_outer email_input">
 			<span class="email_ico"></span> <input path="email" name="logemail"
@@ -73,8 +72,6 @@
 				onclick="backOnclick()"
 				style="height: 10.1%; width: 40%; margin-top: 8%; margin-left: 11%; font-size: 20px" />
 		</div>
-	</div>
-	<div id="load">
 	</div>
 </body>
 </html>

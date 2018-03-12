@@ -5,6 +5,7 @@ $(function() {
 
 // 注册按钮点击事件
 function registerOnclick() {
+
 	$(".login_box").hide();// 隐藏登录box
 	$("#logname,#logemail,#logpass,#logpass2").val("");// 清空标签值
 	$(".register_box").show();
@@ -51,10 +52,10 @@ function confirmOnclick() {
 		});
 		return false;
 	}
+	showLoad();// 显示加载loading
 	register();
 
 }
-
 // 注册
 function register() {
 	var name = $("#logname").val();
@@ -70,6 +71,7 @@ function register() {
 			"password" : password
 		},
 		"success" : function(data) {
+			hideLoad();// 隐藏加载loading
 			var flag = 5;
 			if (data.flag) {
 				flag = 6;
